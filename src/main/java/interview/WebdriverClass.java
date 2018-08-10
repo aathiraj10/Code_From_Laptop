@@ -22,13 +22,15 @@ public class WebdriverClass {
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
 		driver.findElement(By.xpath("//i[@class='icon-hotels db blue ico28 lh1-2 padT2 padB3']")).click();
-	driver.findElement(By.xpath("//input[@id='gosuggest_inputL']")).sendKeys("Pondicherry");
-	driver.findElement(By.xpath("//input[@id='gosuggest_inputL']")).sendKeys(Keys.ARROW_DOWN);
-	driver.findElement(By.xpath("//input[@id='gosuggest_inputL']")).sendKeys(Keys.ENTER);
+	driver.findElement(By.xpath("//input[@id='gosuggest_inputL']")).sendKeys("Pondicherry",Keys.ARROW_DOWN,Keys.ENTER);
+	//driver.findElement(By.xpath("//input[@id='gosuggest_inputL']")).sendKeys(Keys.ARROW_DOWN);
+	//driver.findElement(By.xpath("//input[@id='gosuggest_inputL']")).sendKeys(Keys.ENTER);
 		Thread.sleep(3000);
 		WebElement inputbox = driver.findElement(By.id("gosuggest_inputL"));
 		Actions a = new Actions(driver);
-		a.moveToElement(inputbox).click().perform();
+		a.sendKeys(Keys.ARROW_DOWN);
+		a.sendKeys(Keys.ENTER);
+		//a.moveToElement(inputbox).click().perform();
 		/*
 		Select obj = new Select(inputbox);
 		obj.selectByIndex(0);
